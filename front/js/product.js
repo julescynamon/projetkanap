@@ -11,19 +11,19 @@ let productData = [];
  * @returns {promise}
  */
 async function fetchProduct () {
-    await fetch(`http://localhost:3000/api/products/${id}`)
-        .then((reponse) => reponse.json())
-        .then((promise) => {
-        productData = promise;
-        })
-        // mise en place d'une fonction en cas d'erreur d'affichage
-        .catch((error) => {
-        let seeItems = document.querySelector(".item");
-        seeItems.innerHTML =
-            "Impossible d'afficher nos produits, erreur requete API. Veuillez réessayer dans quelques instants <br>Si le problème persiste, contactez-nous.";
-        seeItems.style.textAlign = "center";
-        seeItems.style.padding = "30vh 0";
-        });
+    await fetch(`${apiUrl}/api/products/${id}`)
+		.then((reponse) => reponse.json())
+		.then((promise) => {
+			productData = promise;
+		})
+		// mise en place d'une fonction en cas d'erreur d'affichage
+		.catch((error) => {
+			let seeItems = document.querySelector(".item");
+			seeItems.innerHTML =
+				"Impossible d'afficher nos produits, erreur requete API. Veuillez réessayer dans quelques instants <br>Si le problème persiste, contactez-nous.";
+			seeItems.style.textAlign = "center";
+			seeItems.style.padding = "30vh 0";
+		});
 };
 
 /**

@@ -6,7 +6,7 @@ let canapData = [];
  * @returns {promise}
  */
 async function fetchCanap ()  {
-        await fetch("http://localhost:3000/api/products")
+        await fetch(`${apiUrl}/api/products`)
         .then((reponse) => reponse.json())
         .then((promise) => {
             canapData = promise;
